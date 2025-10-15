@@ -1,0 +1,6 @@
+x=input ("enter a string")
+print("the value of x is",x)
+y=input ("enter your hobby")
+print("the hobby is",y)
+z=input ("enter your age")
+print("the age is",z)

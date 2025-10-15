@@ -1,0 +1,9 @@
+name="minah"
+print(type(name))
+age=13
+print(type(age))
+age=str(age)
+print(type(age))
+height=150
+height=str(height)
+print(type(height))
