@@ -1,0 +1,9 @@
+my_set={1,2,3}
+print(my_set)
+my_set={1,"hello",3.9}
+print(my_set)
+my_set={1,1,2,2,3,3}
+print(my_set)
+my_set=set([1,2,3,4])
+my_set.pop()
+print(my_set)
