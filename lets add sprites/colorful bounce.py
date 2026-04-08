@@ -34,3 +34,32 @@ class Sprite (pygame.sprite.Sprite):
         if boundry_hit:
             pygame.event.post(pygame.event.Event(SPRITE_COLOR_CHANGE_EVENT))
             pygame.event.post(pygame.event.Event(BACKGROUND_COLOR_CHANGE_EVENT))
+    def change_color(self):
+        self.image.fill(random.choice([YELLOW,MAGENTA,ORANGE,WHITE]))
+def change_background_color():
+    global bg_color 
+    bg_color=random.choice([BLUE,LIGHTBLUE,DARKBLUE])
+all_sprites_list=pygame.sprite.Group()
+sp1=Sprite(WHITE,20,30)
+sp1.rect.x=random.randint(0,480)
+sp1.rect.y=random.randint(0,370)
+all_sprites_list.add(sp1)
+screen=pygame.display.set_mode((500,400))
+
+pygame.display.set_caption("boundarie sprite")
+bg_color=BLUE
+screen.fill(bg_color)
+exit=False
+while not exit:
+  for event in pygame.event.get():
+    if event.type==pygame.QUIT:
+      exit=True
+    elif event.type==SPRITE_COLOR_CHANGE_EVENT:
+        sp1.change_color()
+    elif event.type==BACKGROUND_COLOR_CHANGE_EVENT:
+        change_background_color()
+  all_sprites_list.update()
+  screen.fill(bg_color)
+  all_sprites_list.draw(screen)
+  pygame.display.flip()
+pygame.quit()
